@@ -7,7 +7,27 @@
     <title>Document</title>
 </head>
 <body>
+    <h1>Welcome Page</h1>
 
-    <h1>welcome page</h1>
+    @if($products -> isNotEmpty())
+
+    <ol>
+        @foreach ($products as $product)
+
+        <li>  Product-Name: {{$product -> name}} <br>
+            Seller-Name: {{ $product -> seller_name }} <br>
+            Price: ${{ $product -> Price }} <br>
+            Description: {{ $product-> description }}
+        </li>
+        @endforeach
+    </ol>
+
+
+
+    @else
+    <div>no products to show</div>
+
+    @endif
+
 </body>
 </html>
